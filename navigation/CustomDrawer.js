@@ -5,6 +5,8 @@ import { COLORS, FONTS, SIZES, constants, dummyData, icons, images } from '../co
 import MainLayout from '../screens/MainLayout'
 import { useDispatch, useSelector } from 'react-redux'
 import { SetSelectedTab } from '../stores/Tab/tabAction'
+import OnBoard from '../screens/Onboarding/OnBoard'
+
 const CustomDrawerItems = ({ label, icon, onPress, isFoucused }) => {
     return (
         <TouchableOpacity
@@ -17,7 +19,7 @@ const CustomDrawerItems = ({ label, icon, onPress, isFoucused }) => {
                 borderRadius: SIZES.base,
                 backgroundColor: isFoucused ? COLORS.transparentBlack1 : null
             }}
-            onPress={ onPress}
+            onPress={onPress}
         >
             <Image
                 source={icon}
@@ -90,6 +92,15 @@ const CustomDrawerContent = ({ navigation }) => {
                         marginTop: SIZES.padding
                     }}
                 >
+                    <CustomDrawerItems
+                        label={constants.screens.on_board}
+                        icon={icons.home}
+                        isFoucused={Tab.selectedtab === constants.screens.on_board ? true : false}
+                        onPress={() => {
+                            dispatch(SetSelectedTab(constants.screens.on_board))
+                            navigation.navigate("Onboard")
+                        }}
+                    />
                     <CustomDrawerItems
                         label={constants.screens.home}
                         icon={icons.home}
@@ -224,11 +235,14 @@ export default function CustomDrawer() {
                         backgroundColor: 'transparent'
                     },
                 }}
-                initialRouteName="MainLayout"
+                initialRouteName="onborad"
                 drawerContent={props => {
                     return <CustomDrawerContent navigation={props.navigation} />
                 }}
             >
+                <Drawer.Screen name='onborad'>
+                    {props => <OnBoard {...props} />}
+                </Drawer.Screen>
                 <Drawer.Screen name='MainLayout'>
                     {props => <MainLayout {...props} />}
                 </Drawer.Screen>

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import React, { useEffect, useState, useRef } from 'react'
+import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native'
 import Animated, { Extrapolate, interpolate, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
 import { useDrawerProgress } from '@react-navigation/drawer'
 import { Header } from '../components';
@@ -7,6 +7,11 @@ import { COLORS, FONTS, SIZES, icons, dummyData, constants } from '../constants'
 import { useDispatch, useSelector } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import { SetSelectedTab } from '../stores/Tab/tabAction';
+import Home from './Home/Home';
+import Search from './Search/Search';
+import Cart from './Cart/Cart';
+import Favourite from './Favourite/Favourite';
+import Notification from './Notification/Notification';
 
 // Tab Button component
 
@@ -14,13 +19,13 @@ const TabButton = ({ onPress, isFoucesd, icon, label, innerContainerStyle, outer
     return (
         <TouchableOpacity
             onPress={onPress}
-            style={[{flex: isFoucesd ?2 :1}]}
+            style={[{ flex: isFoucesd ? 2 : 1 }]}
         >
             <Animated.View
                 style={[
                     {
                         justifyContent: 'center',
-                        alignItems:'center',
+                        alignItems: 'center',
                     },
                     outerContainerStyle
                 ]}
@@ -30,12 +35,12 @@ const TabButton = ({ onPress, isFoucesd, icon, label, innerContainerStyle, outer
                     style={[
                         {
                             flexDirection: 'row',
-                            width:'100%',
+                            width: '100%',
                             height: 50,
                             alignItems: 'center',
                             justifyContent: 'center',
                             borderRadius: 25,
-                            padding:5
+                            padding: 5
                         },
                         innerContainerStyle
                     ]}
@@ -44,7 +49,7 @@ const TabButton = ({ onPress, isFoucesd, icon, label, innerContainerStyle, outer
                         style={{
                             height: 20,
                             width: 20,
-                            tintColor:isFoucesd? COLORS.white: COLORS.gray
+                            tintColor: isFoucesd ? COLORS.white : COLORS.gray
                         }}
                         source={icon} />
                     {
@@ -71,7 +76,7 @@ const TabButton = ({ onPress, isFoucesd, icon, label, innerContainerStyle, outer
 
 export default function MainLayout({ navigation }) {
 
-
+    const flatListRef = useRef()
     const Tab = useSelector(state => state.tabAction)
     const dispatch = useDispatch()
     const drawerProgress = useDrawerProgress();
@@ -167,8 +172,11 @@ export default function MainLayout({ navigation }) {
 
 
     useEffect(() => {
-        console.log("----- selected tab---- ", Tab)
         if (Tab.selectedtab === constants.screens.home) {
+            flatListRef?.current?.scrollToIndex({
+                index: 0,
+                animated: false
+            })
             homeTabFlex.value = withTiming(2, { duration: 500 })
             homeTabColor.value = withTiming(COLORS.primary, { duration: 500 })
         }
@@ -178,6 +186,10 @@ export default function MainLayout({ navigation }) {
         }
         // search tab
         if (Tab.selectedtab === constants.screens.search) {
+            flatListRef?.current.scrollToIndex({
+                index: 1,
+                animated: false
+            })
             serachTabFlex.value = withTiming(2, { duration: 500 })
             searchTabColor.value = withTiming(COLORS.primary, { duration: 500 })
         }
@@ -187,6 +199,10 @@ export default function MainLayout({ navigation }) {
         }
         // cart
         if (Tab.selectedtab === constants.screens.cart) {
+            flatListRef?.current.scrollToIndex({
+                index: 2,
+                animated: false
+            })
             cartTabFlex.value = withTiming(2, { duration: 500 })
             cartTabColor.value = withTiming(COLORS.primary, { duration: 500 })
         }
@@ -197,6 +213,10 @@ export default function MainLayout({ navigation }) {
 
         // favourite tab
         if (Tab.selectedtab === constants.screens.favourite) {
+            flatListRef?.current.scrollToIndex({
+                index: 3,
+                animated: false
+            })
             favouriteTabFlex.value = withTiming(2, { duration: 500 })
             favouriteTabColor.value = withTiming(COLORS.primary, { duration: 500 })
         }
@@ -206,6 +226,10 @@ export default function MainLayout({ navigation }) {
         }
         // notification tab
         if (Tab.selectedtab === constants.screens.notification) {
+            flatListRef?.current.scrollToIndex({
+                index: 4,
+                animated: false
+            })
             notificationTabFlex.value = withTiming(2, { duration: 500 })
             notificationTabColor.value = withTiming(COLORS.primary, { duration: 500 })
         }
@@ -279,11 +303,49 @@ export default function MainLayout({ navigation }) {
                     width: '100%'
                 }}
             >
-                <Text style={[{
-                    color: 'black'
-                }]}>
-                    MainLayout
-                </Text>
+
+                <FlatList
+                    ref={flatListRef}
+                    data={constants.bottom_tabs}
+                    keyExtractor={item => `${item.id}`}
+                    horizontal
+                    scrollEnabled={false}
+                    snapToAlignment='center'
+                    snapToInterval={SIZES.width}
+                    showsHorizontalScrollIndicator={false}
+                    renderItem={({ item, index }) => {
+                        return (
+                            <View
+                                style={{
+                                    width: SIZES.width,
+                                    height: SIZES.height
+                                }}
+                            >
+                                {
+                                    item.label === constants.screens.home
+                                    && <Home />
+                                }
+                                {
+                                    item.label === constants.screens.search
+                                    && <Search />
+                                }
+                                {
+                                    item.label === constants.screens.cart
+                                    && <Cart />
+                                }
+                                {
+                                    item.label === constants.screens.favourite
+                                    && <Favourite />
+                                }
+                                {
+                                    item.label === constants.screens.notification
+                                    && <Notification />
+                                }
+
+                            </View>
+                        )
+                    }}
+                />
             </View>
             {/* Footer */}
 

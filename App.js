@@ -8,6 +8,9 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from './stores/RootReducer';
+import { StatusBar } from 'react-native';
+import { SigIn, SignUp, OnBoard } from './screens';
+
 
 const App = () => {
 
@@ -21,7 +24,9 @@ const App = () => {
 
   return (
     <Provider store={store}>
+      <StatusBar backgroundColor={'black'} barStyle={'light-content'} />
       <NavigationContainer>
+        {/* <OnBoard /> */}
         <Stack.Navigator
           screenOptions={{
             headerShown: false
@@ -31,6 +36,10 @@ const App = () => {
           <Stack.Screen
             name="Home"
             component={CustomDrawer}
+          />
+          <Stack.Screen
+            name="signin"
+            component={SigIn}
           />
         </Stack.Navigator>
       </NavigationContainer>
