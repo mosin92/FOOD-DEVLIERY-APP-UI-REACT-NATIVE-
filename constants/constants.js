@@ -130,11 +130,21 @@ const tags = [
     }
 ]
 
+const publicStack = {
+    sign_in: 'signin',
+    forgot_paswd: 'forgot_pswd',
+    login: 'login',
+    otp: 'otp',
+    on_board: 'on_board',
+    sign_up: 'sign_up'
+}
+
 export default {
     onboarding_screens,
     screens,
     bottom_tabs,
     delivery_time,
     ratings,
-    tags
+    tags,
+    publicStack
 }

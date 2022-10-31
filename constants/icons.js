@@ -20,6 +20,12 @@ const setting = require("../assets/icons/setting.png")
 const star = require("../assets/icons/star.png")
 const wallet = require("../assets/icons/wallet.png")
 const help = require("../assets/icons/help.png")
+const correct = require('../assets/icons/correct.png')
+const eye_open = require('../assets/icons/eye.png')
+const eye_close = require('../assets/icons/eye_close.png')
+const cancel = require('../assets/icons/cancel.png')
+const fb = require('../assets/icons/fb.png')
+const google = require('../assets/icons/google.png')
 
 export default {
     coupon,
@@ -44,4 +50,10 @@ export default {
     star,
     wallet,
     help,
+    correct,
+    eye_open,
+    eye_close,
+    cancel,
+    fb,
+    google
 }

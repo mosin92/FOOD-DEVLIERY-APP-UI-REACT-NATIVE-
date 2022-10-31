@@ -2,7 +2,7 @@ import { Image, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { FONTS } from '../constants'
 
-const TextButtonIcon = ({ containerStyle, label, labelStyle, icon, iconStyle, onPress }) => {
+const TextButtonIcon = ({ containerStyle, label, labelStyle, icon, iconStyle, onPress, position = "RIGHT" }) => {
     return (
         <TouchableOpacity
             style={{
@@ -13,6 +13,21 @@ const TextButtonIcon = ({ containerStyle, label, labelStyle, icon, iconStyle, on
             }}
             onPress={onPress}
         >
+            {
+                position === "LEFT" &&
+                (
+                    <Image
+                        source={icon}
+                        style={{
+                            marginLeft: 5,
+                            width: 20,
+                            height: 20,
+                            ...iconStyle
+                        }}
+                    />
+                )
+            }
+
             <Text
                 style={{
                     ...FONTS.body3,
@@ -20,15 +35,21 @@ const TextButtonIcon = ({ containerStyle, label, labelStyle, icon, iconStyle, on
                 }}>
                 {label}
             </Text>
-            <Image
-                source={icon}
-                style={{
-                    marginLeft: 5,
-                    width: 20,
-                    height: 20,
-                    ...iconStyle
-                }}
-            />
+            {
+                position === "RIGHT" &&
+                (
+                    <Image
+                        source={icon}
+                        style={{
+                            marginLeft: 5,
+                            width: 20,
+                            height: 20,
+                            ...iconStyle
+                        }}
+                    />
+                )
+            }
+
         </TouchableOpacity>
     )
 }

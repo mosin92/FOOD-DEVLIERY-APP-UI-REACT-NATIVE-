@@ -1,5 +1,7 @@
 import utils from "./Utils";
+import CustomSwitch from "../../components/CustomSwitch";
 
 export default {
-    utils
+    utils,
+    CustomSwitch
 }
