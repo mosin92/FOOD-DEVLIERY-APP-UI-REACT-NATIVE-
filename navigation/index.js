@@ -1,5 +1,7 @@
 import PublicStack from "./PublicStack";
+import ProtectedStack from "./ProtectedStack";
 
 export {
-    PublicStack
+    PublicStack,
+    ProtectedStack
 }

@@ -1,7 +1,8 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import { FONTS } from '../constants'
 
-export default function Header({ containerStyle, title, LeftComponent, RightComponent }) {
+export default function Header({ containerStyle, title, LeftComponent, RightComponent, titleStyle }) {
     return (
         <View
             style={{
@@ -16,14 +17,16 @@ export default function Header({ containerStyle, title, LeftComponent, RightComp
             <View
                 style={{
                     flex: 1,
-                    justifyContent:'center',
-                    alignItems:'center',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                 }}
             >
 
                 <Text
                     style={{
-                        color: 'black'
+                        color: 'black',
+                        ...FONTS.h3,
+                        ...titleStyle
                     }}
                 >{title}</Text>
             </View>

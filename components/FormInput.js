@@ -14,25 +14,33 @@ const FormInput = ({
     autoComplete = "off",
     autoCapitalize = "none",
     errorMsg = "",
-    inputStyle
+    inputStyle,
+    value,
+    maxLength,
+    inputContainerStyle
 }) => {
     return (
         <View style={{ ...containerStyle, marginVertical: 5 }}>
 
             {/* label & error msg */}
-            <View
-                style={{
-                    justifyContent: 'space-between',
-                    flexDirection: 'row',
-                }}
-            >
+            {
+                label &&
+                <View
+                    style={{
+                        justifyContent: 'space-between',
+                        flexDirection: 'row',
+                    }}
+                >
 
-                <Text style={{
-                    color: COLORS.gray, ...FONTS.body4
-                }} >{label}</Text>
+                    <Text style={{
+                        color: COLORS.gray, ...FONTS.body4
+                    }} >{label}</Text>
 
-                <Text style={{ color: 'red', ...FONTS.body4 }}>{errorMsg}</Text>
-            </View>
+                    <Text style={{ color: 'red', ...FONTS.body4 }}>{errorMsg}</Text>
+                </View>
+
+            }
+
 
             {/* text input */}
 
@@ -43,12 +51,15 @@ const FormInput = ({
                     marginTop: SIZES.base,
                     paddingHorizontal: SIZES.padding,
                     backgroundColor: COLORS.lightGray2,
-                    height: 55
+                    height: 55,
+                    ...inputContainerStyle
                 }}
             >
                 {prependComponent}
 
                 <TextInput
+                    maxLength={maxLength}
+                    value={value}
                     style={{
                         flex: 1,
                         color: COLORS.gray2,

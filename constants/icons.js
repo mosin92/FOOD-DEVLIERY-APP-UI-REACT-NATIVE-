@@ -26,8 +26,27 @@ const eye_close = require('../assets/icons/eye_close.png')
 const cancel = require('../assets/icons/cancel.png')
 const fb = require('../assets/icons/fb.png')
 const google = require('../assets/icons/google.png')
+const back = require('../assets/icons/back.png')
+const clock = require('../assets/icons/clock.png')
+const dollar = require('../assets/icons/dollar.png')
+const minus = require('../assets/icons/minus.png')
+const plus = require('../assets/icons/plus.png')
+const delete_icon = require('../assets/icons/delete.png')
+const check_off = require('../assets/icons/check_off.png')
+const check_on = require('../assets/icons/check_on.png')
+const location1 = require('../assets/icons/location1.png')
+const discount = require('../assets/icons/discount.png')
 
 export default {
+    discount,
+    location1,
+    check_on,
+    check_off,
+    delete_icon,
+    minus,
+    plus,
+    dollar,
+    clock,
     coupon,
     cross,
     cart,
@@ -55,5 +74,6 @@ export default {
     eye_close,
     cancel,
     fb,
-    google
+    google,
+    back
 }

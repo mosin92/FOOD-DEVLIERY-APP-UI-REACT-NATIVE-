@@ -10,7 +10,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from './stores/RootReducer';
 import { StatusBar } from 'react-native';
 import { SigIn, SignUp, OnBoard } from './screens';
-import { PublicStack } from './navigation';
+import { PublicStack,ProtectedStack } from './navigation';
 
 
 const App = () => {
@@ -32,11 +32,11 @@ const App = () => {
           screenOptions={{
             headerShown: false
           }}
-          initialRouteName={'publicStack'}
+          initialRouteName={'Home'}
         >
           <Stack.Screen
             name="Home"
-            component={CustomDrawer}
+            component={ProtectedStack}
           />
           <Stack.Screen
             name="publicStack"

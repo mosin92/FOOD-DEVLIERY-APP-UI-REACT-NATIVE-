@@ -139,6 +139,16 @@ const publicStack = {
     sign_up: 'sign_up'
 }
 
+const privateStack = {
+    food_details: 'food_details',
+    cart: 'cart',
+    card: 'my_card',
+    add_card: 'add_card',
+    checkout: 'checkout',
+    payment_success: 'payment_success',
+    delivery_status: 'delivery_status'
+}
+
 export default {
     onboarding_screens,
     screens,
@@ -146,5 +156,6 @@ export default {
     delivery_time,
     ratings,
     tags,
-    publicStack
+    publicStack,
+    privateStack,
 }
