@@ -6,7 +6,7 @@ import { COLORS, FONTS, SIZES } from '../../constants'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
-const Otp = () => {
+const Otp = ({ navigation }) => {
     const [timer, setTimer] = useState(60)
 
     useEffect(() => {
@@ -90,6 +90,7 @@ const Otp = () => {
             {/* Footer */}
 
             <TextButton
+                onPress={() => navigation.replace("Home")}
                 label={"Continue"}
                 buttonContainerStyle={{
                     backgroundColor: COLORS.primary,

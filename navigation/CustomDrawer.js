@@ -93,15 +93,6 @@ const CustomDrawerContent = ({ navigation }) => {
                     }}
                 >
                     <CustomDrawerItems
-                        label={constants.screens.on_board}
-                        icon={icons.home}
-                        isFoucused={Tab.selectedtab === constants.screens.on_board ? true : false}
-                        onPress={() => {
-                            dispatch(SetSelectedTab(constants.screens.on_board))
-                            navigation.navigate("Onboard")
-                        }}
-                    />
-                    <CustomDrawerItems
                         label={constants.screens.home}
                         icon={icons.home}
                         isFoucused={Tab.selectedtab === constants.screens.home ? true : false}
@@ -235,14 +226,11 @@ export default function CustomDrawer() {
                         backgroundColor: 'transparent'
                     },
                 }}
-                initialRouteName="onborad"
+                initialRouteName="MainLayout"
                 drawerContent={props => {
                     return <CustomDrawerContent navigation={props.navigation} />
                 }}
             >
-                <Drawer.Screen name='onborad'>
-                    {props => <OnBoard {...props} />}
-                </Drawer.Screen>
                 <Drawer.Screen name='MainLayout'>
                     {props => <MainLayout {...props} />}
                 </Drawer.Screen>

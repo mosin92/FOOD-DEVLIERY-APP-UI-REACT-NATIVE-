@@ -10,8 +10,10 @@ import AddCard from './Card/AddCard'
 import Checkout from './Cart/Checkout'
 import PaymentSuccess from './Cart/PaymentSuccess'
 import DeliveryStatus from './Delivery/DeliveryStatus'
+import Map from './Delivery/Map'
 
 export {
+    Map,
     DeliveryStatus,
     PaymentSuccess,
     AddCard,

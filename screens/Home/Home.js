@@ -4,7 +4,7 @@ import { SIZES, COLORS, FONTS, constants, dummyData, icons, images } from '../..
 import { HorizontalFoodCard, VerticalFoodCard } from '../../components'
 import FilterModal from './FilterModal'
 
-export default function Home() {
+export default function Home({ navigation }) {
 
     const [selectedCategoryId, setSelectedCategoryId] = useState(1)
     const [selectedMenuType, setSelectedMenuType] = useState(1)
@@ -40,7 +40,7 @@ export default function Home() {
         return (
             <View
                 style={{
-                    height: 40,
+                    height: 50,
                     flexDirection: 'row',
                     alignItems: 'center',
                     marginHorizontal: SIZES.padding,
@@ -180,7 +180,7 @@ export default function Home() {
                                     width: 150
                                 }}
                                 item={item}
-                                onPress={() => console.log("horizontal food card")}
+                                onPress={() => navigation.navigate(constants.privateStack.food_details)}
                             />
                         )
                     }}
@@ -209,7 +209,7 @@ export default function Home() {
                                     padding: 18
                                 }}
                                 item={item}
-                                onPress={() => console.log("---- Vertical food card ---")}
+                                onPress={() => navigation.navigate(constants.privateStack.food_details)}
                             />
                         )
                     }}
@@ -364,7 +364,7 @@ export default function Home() {
                                 width: 110
                             }}
                             item={item}
-                            onPress={() => console.log("-------- ")}
+                            onPress={() => navigation.navigate(constants.privateStack.food_details)}
 
                         />
                     )

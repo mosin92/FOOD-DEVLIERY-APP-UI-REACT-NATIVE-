@@ -32,7 +32,7 @@ const App = () => {
           screenOptions={{
             headerShown: false
           }}
-          initialRouteName={'Home'}
+          initialRouteName={'publicStack'}
         >
           <Stack.Screen
             name="Home"

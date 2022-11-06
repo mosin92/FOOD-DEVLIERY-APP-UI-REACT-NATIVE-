@@ -28,6 +28,7 @@ const FoodDetail = ({ navigation }) => {
                 }}
                 LeftComponent={
                     <IconButton
+                        onPress={() => navigation.goBack()}
                         icon={icons.back}
                         containerStyle={{
                             width: 40,

@@ -323,11 +323,11 @@ export default function MainLayout({ navigation }) {
                             >
                                 {
                                     item.label === constants.screens.home
-                                    && <Home />
+                                    && <Home navigation={navigation} />
                                 }
                                 {
                                     item.label === constants.screens.search
-                                    && <Search />
+                                    && <Home />
                                 }
                                 {
                                     item.label === constants.screens.cart
@@ -335,11 +335,11 @@ export default function MainLayout({ navigation }) {
                                 }
                                 {
                                     item.label === constants.screens.favourite
-                                    && <Favourite />
+                                    && <Home />
                                 }
                                 {
                                     item.label === constants.screens.notification
-                                    && <Notification />
+                                    && <Home />
                                 }
 
                             </View>
@@ -408,7 +408,7 @@ export default function MainLayout({ navigation }) {
                         label={constants.screens.cart}
                         icon={icons.cart}
                         isFoucesd={constants.screens.cart === Tab.selectedtab}
-                        onPress={() => dispatch(SetSelectedTab(constants.screens.cart))}
+                        onPress={() => navigation.navigate(constants.privateStack.cart)}
                         outerContainerStyle={cartFlexStyle}
                         innerContainerStyle={cartColorstyle}
                     />

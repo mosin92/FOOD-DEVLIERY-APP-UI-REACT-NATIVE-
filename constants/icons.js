@@ -36,8 +36,24 @@ const check_off = require('../assets/icons/check_off.png')
 const check_on = require('../assets/icons/check_on.png')
 const location1 = require('../assets/icons/location1.png')
 const discount = require('../assets/icons/discount.png')
+const dotted_line = require('../assets/icons/dotted_line.png')
+const check_circle = require('../assets/icons/check_circle.png')
+const map = require('../assets/icons/map.png')
+const location_pin = require('../assets/icons/location_pin.png')
+const navigator1 = require('../assets/icons/navigator1.png')
+const globe = require('../assets/icons/globe.png')
+const focus = require('../assets/icons/focus.png')
+const call = require('../assets/icons/call.png')
 
 export default {
+    call,
+    focus,
+    globe,
+    location_pin,
+    navigator1,
+    map,
+    check_circle,
+    dotted_line,
     discount,
     location1,
     check_on,

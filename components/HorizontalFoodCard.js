@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { COLORS, FONTS, icons, SIZES } from '../constants'
 
-export default function HorizontalFoodCard({ containerStyle, imageStyle, item }) {
+export default function HorizontalFoodCard({ containerStyle, imageStyle, item, onPress }) {
     return (
         <TouchableOpacity
             style={{
@@ -11,6 +11,7 @@ export default function HorizontalFoodCard({ containerStyle, imageStyle, item })
                 borderRadius: SIZES.radius,
                 ...containerStyle
             }}
+            onPress={onPress}
         >
             {/* Image */}
             <Image

@@ -136,6 +136,7 @@ const SignIn = ({ navigation }) => {
                         height: 55
                     }}
                     labelStyle={{ color: COLORS.white, ...FONTS.body3 }}
+                    onPress={() => navigation.replace("Home")}
                 />
 
 

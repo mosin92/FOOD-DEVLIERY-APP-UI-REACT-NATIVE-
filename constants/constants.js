@@ -140,16 +140,46 @@ const publicStack = {
 }
 
 const privateStack = {
+    home: 'home',
     food_details: 'food_details',
     cart: 'cart',
     card: 'my_card',
     add_card: 'add_card',
     checkout: 'checkout',
     payment_success: 'payment_success',
-    delivery_status: 'delivery_status'
+    delivery_status: 'delivery_status',
+    map: 'map'
 }
 
+const track_order_status = [
+    {
+        id: 1,
+        title: "Order Confirmed",
+        sub_title: "Your order has been received"
+    },
+    {
+        id: 2,
+        title: "Order Prepared",
+        sub_title: "Your order has been prepared"
+    },
+    {
+        id: 3,
+        title: "Delivery in Progress",
+        sub_title: "Hang on! Your food is on the way"
+    },
+    {
+        id: 4,
+        title: "Delivered",
+        sub_title: "Enjoy your meal!"
+    },
+    {
+        id: 5,
+        title: "Rate Us",
+        sub_title: "Help us improve our service"
+    }
+]
 export default {
+    track_order_status,
     onboarding_screens,
     screens,
     bottom_tabs,

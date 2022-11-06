@@ -227,17 +227,17 @@ const AddCard = ({ navigation, route }) => {
                             flex: 1,
                             marginLeft: SIZES.radius
                         }}
-                        maxLength={5}
+                        maxLength={3}
                         label={"CVC"}
                         value={cvc}
                         onChange={(value) => {
                             setCVC(value)
-                            utils.validateInput(value, 5, setExpiryDateError)
+                            utils.validateInput(value, 3, setCVCError)
                         }}
                         appendComponent={
                             <FormInputCheck
                                 value={cvc}
-                                error={setCVCError}
+                                error={cvcError}
                             />
                         }
                     />
@@ -277,9 +277,9 @@ const AddCard = ({ navigation, route }) => {
                         alignItems: 'center',
                         borderRadius: SIZES.radius,
                         height: 55,
-                        backgroundColor: isEnablebtn() ? COLORS.primary :COLORS.transparentPrimray
+                        backgroundColor: isEnablebtn() ? COLORS.primary : COLORS.transparentPrimray
                     }}
-
+                    onPress={() => navigation.goBack()}
                 />
 
             </View>

@@ -13,6 +13,7 @@ export default function VerticalFoodCard({ item, containerStyle, onPress }) {
                 padding: SIZES.radius,
                 ...containerStyle
             }}
+            onPress={onPress}
         >
             {/* calories and favourite */}
             <View
